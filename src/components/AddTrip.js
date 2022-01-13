@@ -1,25 +1,23 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@mui/styles';
+import React, { useState, useEffect } from 'react';
+import AddTripForm from "./AddTripForm";
+import { Grid, TextField, makeStyles, FormControl, RadioGroup, FormControlLabel, Ratio, FormLabel } from '@mui/styles';
+import { Paper } from '@mui/material';
 
-const useStyles = makeStyles({
-    addTrip:{
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'absolute',
-        left: '0px',
-        width: '320px',
-        height: '100%',
-        backgroundColor: '#253053'
 
+const useStyles = makeStyles(theme => ({
+    pageContent: {
+        margin: theme.spacing(5),
+        padding: theme.spacing(3)
     }
-})
+}))
 
 export default function AddTrip(){
 
     const classes = useStyles();
+
     return(
-        <div className={classes.addTrip}>
-<p>testttttt</p>
-        </div>
+        <Paper className={classes.pageContent}>
+            <AddTripForm />
+        </Paper>
     )
 }
