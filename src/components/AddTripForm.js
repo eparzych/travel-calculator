@@ -1,54 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@mui/styles';
 import { Grid, TextField } from '@mui/material';
+import { useForm, Form } from './useForm';
+import Controls from "../components/Controls/Controls";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '80%',
-            margin: theme.spacing(1),
-        }
-    }
-}))
 
 const initialFValues = {
     id: 0,
-    title:'',
+    tourName:'',
     city:'',
     startDate: new Date(),
     endDate: new Date(),
-    isPermanent: false,
 }
+
+const inputProps = {
+    step: 300,
+  };
 
 export default function AddTripForm(){
+    
+    // const  [values, setValues] = useState(initialFValues);
 
-    const  [values, setValues] = useState(initialFValues);
-    const classes = useStyles();
+    const { 
+        values, 
+        setValues, 
+        handleInputChange,
+        resetForm
+    } = useForm(initialFValues);
 
-    const inputProps = {
-        step: 300,
-      };
-
-    return(
-        
-        <form className={classes.root}>
+    return (
+        <Form>
             <Grid container>
                 <Grid item xs={12}>
-                    <TextField 
-                        variant="outlined"
+                    <h1>NEW TRAVEL</h1>
+                </Grid>
+                <Grid item xs={6}>
+                    <Controls.Input
                         label="Tour name"
-                        value={values.title}/>
-                </Grid>
-                <Grid item xs={12}>
-                    <TextField 
-                            variant="outlined"
+                        name="tourName"
+                        value={values.tourName}
+                        onChange = {handleInputChange} />
+                    <Controls.Input 
                             label="City"
-                            value={values.city} />
+                            name="city"
+                            value={values.city} 
+                            onChange={handleInputChange} />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
+                
                     <TextField id="time" type="date" inputProps={inputProps} />
+                    <TextField id="time" type="date" inputProps={inputProps} />
+{/* 
+                    <div>
+                        <Controls.Button
+                            type="submit"
+                            text="Submit" />
+                        <Controls.Button
+                            text="Reset"
+                            color="default" />
+                    </div> */}
                 </Grid>
             </Grid>
-        </form>
+        </Form>
     )
 }
+
