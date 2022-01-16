@@ -8,6 +8,7 @@ const initialFValues = {
     id: 0,
     tourName:'',
     city:'',
+    country: '',
     startDate: new Date(),
     endDate: new Date(),
 }
@@ -18,7 +19,6 @@ const inputProps = {
 
 export default function AddTripForm(){
     
-
     const { 
         values, 
         setValues, 
@@ -39,30 +39,30 @@ export default function AddTripForm(){
                         value={values.tourName}
                         onChange = {handleInputChange} />
                     <Controls.Input 
-                            label="City"
-                            name="city"
-                            value={values.city} 
-                            onChange={handleInputChange} />
+                        label="City"
+                        name="city"
+                        value={values.city} 
+                        onChange={handleInputChange} />
+                    <Controls.Input 
+                        label="Country"
+                        name="country"
+                        value={values.country} 
+                        onChange={handleInputChange} />
                 </Grid>
                 <Grid item xs={6}>
                     <TextField id="time" type="date" inputProps={inputProps} />
                     <TextField id="time" type="date" inputProps={inputProps} />
                 </Grid>
-                <Grid item xs={6}
-                ></Grid>
-                <Grid item xs={6}>
-                    <Box sx={{ 
-                        dispaly: "flex",
-                        alignItems: "flex-end",
-                        justifyContent: "center"
-                        }}
-                        margin={1.5}>
+                <Grid item xs={5}></Grid>
+                <Grid item xs={2}>
+                    <Box sx={{ marginY: 3 }}>
                         <Controls.Button
                             type="submit"
                             text="Create travel"
                             color="primary" />
                     </Box>
                 </Grid>
+                <Grid item xs={5}></Grid>
             </Grid>
         </Form>
     )

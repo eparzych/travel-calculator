@@ -29,13 +29,23 @@ const useStyles = makeStyles(theme => ({
     root: {
         '& .MuiFormControl-root': {
             width: '85%',
-            margin: theme.spacing(0, 0, 4, 5),
+            margin: theme.spacing(0, 0, 3, 5),
         },
         '& h1': {
             textTransform: 'upperCase',
-            margin: theme.spacing(5.5, 5, 6),
-            fontSize: '42px'
-        }
+            margin: theme.spacing(6, 6, 4),
+            fontSize: '52px',
+            fontWeight: "500",
+        },
+        '& p': {
+            marginLeft: theme.spacing(12),
+            fontSize: '20px'
+        },
+        '& p span': {
+            textTransform: 'upperCase',
+            fontSize: '22px',
+            fontWeight: "600",
+        },
     },
 }))
 

@@ -4,8 +4,6 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        // margin: theme.spacing(0.5),
-        background: "#FFFFFF"
     },
 }))
 
