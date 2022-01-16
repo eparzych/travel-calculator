@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Grid, TextField } from '@mui/material';
 import { useForm, Form } from './useForm';
 import Controls from "../components/Controls/Controls";
-
+import Box from '@mui/material/Box';
 
 const initialFValues = {
     id: 0,
@@ -18,7 +18,6 @@ const inputProps = {
 
 export default function AddTripForm(){
     
-    // const  [values, setValues] = useState(initialFValues);
 
     const { 
         values, 
@@ -31,7 +30,7 @@ export default function AddTripForm(){
         <Form>
             <Grid container>
                 <Grid item xs={12}>
-                    <h1>NEW TRAVEL</h1>
+                    <h1>New Travel</h1>
                 </Grid>
                 <Grid item xs={6}>
                     <Controls.Input
@@ -46,18 +45,23 @@ export default function AddTripForm(){
                             onChange={handleInputChange} />
                 </Grid>
                 <Grid item xs={6}>
-                
                     <TextField id="time" type="date" inputProps={inputProps} />
                     <TextField id="time" type="date" inputProps={inputProps} />
-{/* 
-                    <div>
+                </Grid>
+                <Grid item xs={6}
+                ></Grid>
+                <Grid item xs={6}>
+                    <Box sx={{ 
+                        dispaly: "flex",
+                        alignItems: "flex-end",
+                        justifyContent: "center"
+                        }}
+                        margin={1.5}>
                         <Controls.Button
                             type="submit"
-                            text="Submit" />
-                        <Controls.Button
-                            text="Reset"
-                            color="default" />
-                    </div> */}
+                            text="Create travel"
+                            color="primary" />
+                    </Box>
                 </Grid>
             </Grid>
         </Form>

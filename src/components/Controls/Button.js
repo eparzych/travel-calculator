@@ -2,14 +2,11 @@ import React from 'react';
 import { Button as MuiButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-
 const useStyles = makeStyles(theme => ({
     root: {
-        margin: theme.spacing(0.5)
+        // margin: theme.spacing(0.5),
+        background: "#FFFFFF"
     },
-    label: {
-        textTransform: 'none'
-    }
 }))
 
 export default function Button(props) {
@@ -24,7 +21,7 @@ export default function Button(props) {
             color={color || "primary"}
             onClick={onClick}
             {...other}
-            classes={{ root: classes.root, label: classes.label }}>
+            className={classes.root}>
             {text}
         </MuiButton>
     )

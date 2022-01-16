@@ -1,14 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { makeStyles} from '@mui/styles';
+import { teal } from '@mui/material/colors';
+import { brown } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
+import { Container, Paper, createTheme, ThemeProvider } from '@mui/material';
 import AddTripForm from "./AddTripForm";
-import { Grid, TextField, makeStyles, FormControl, RadioGroup, FormControlLabel, Ratio, FormLabel } from '@mui/styles';
-import { Paper } from '@mui/material';
 
+const theme = createTheme({
+    palette: {
+        primary: {
+            light: teal[50],
+            main: brown[500],
+            dark: teal[900],
+            contrastText: brown[50],
+        }
+    }
+})
 
 const useStyles = makeStyles(theme => ({
-    pageContent: {
-        margin: theme.spacing(5),
-        padding: theme.spacing(3)
-    }
+    appMain: {
+        height: '100vh',
+        padding: '5vh',
+        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')"
+    },
 }))
 
 export default function AddTrip(){
@@ -16,8 +30,14 @@ export default function AddTrip(){
     const classes = useStyles();
 
     return(
-        <Paper className={classes.pageContent}>
-            <AddTripForm />
-        </Paper>
+        <div className={classes.appMain}>
+            <Container>
+                <ThemeProvider theme={theme}>
+                    <Paper sx={{height: "90vh", background: brown[50]}} elevation={4}>                
+                        <AddTripForm />
+                    </Paper>
+                </ThemeProvider>
+            </Container>
+        </div>
     )
 }
