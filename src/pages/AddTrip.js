@@ -4,7 +4,7 @@ import { teal } from '@mui/material/colors';
 import { brown } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
 import { Container, Paper, createTheme, ThemeProvider } from '@mui/material';
-import AddTripForm from "./AddTripForm";
+import AddTripForm from "../components/AddTripForm";
 
 const theme = createTheme({
     palette: {
