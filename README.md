@@ -7,7 +7,7 @@ The aplication is used to save the cost of trips.
 - Material-UI 5
 - Emotion
 - GRID
-- Create React App, 
+- Create React App
 
 ## Screenshots
 
