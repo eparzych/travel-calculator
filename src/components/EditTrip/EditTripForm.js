@@ -13,9 +13,11 @@ const initialFValues = {
     country: 'Italy',
     startDate: new Date(),
     endDate: new Date(),
+    day: new Date(),
     categoryId: '',
     nameExpense: '',
     cost: '',
+    sum: '0',
 }
 
 const inputProps = {
@@ -49,14 +51,20 @@ export default function EditTripForm(){
                 <Grid item xs={12} marginY={4.5}>
                     <Expences />
                 </Grid>
-                <Grid item xs={5}></Grid>
-                <Grid item xs={2}>
+                <Grid item xs={8.5}/>
+                <Grid item xs={3.5} marginBottom={3}>
+                    <Typography variant="subtitle1" component="p">
+                        <span>Sum: {initialFValues.sum}</span>
+                    </Typography>
+                </Grid>
+                <Grid item xs={9.5} />
+                <Grid item xs={2.5}>
                     <Controls.Button
                         type="submit"
                         text="Save travel"
                         color="primary" />
                 </Grid>
-                <Grid item xs={5}></Grid>
+                <Grid item xs={5} />
             </Grid>
         </Form>
     )

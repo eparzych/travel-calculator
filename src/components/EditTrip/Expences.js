@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useForm, Form } from '../useForm';
 import Controls from "../Controls/Controls";
@@ -11,6 +11,10 @@ const initialFValues = {
     nameExpense: '',
     cost: '',
 }
+
+const inputProps = {
+    step: 360,
+  };
 
 export default function Expences(){
 
@@ -24,7 +28,10 @@ export default function Expences(){
     return(
         <Form>
             <Grid container>
-                <Grid item xs={4}>
+                <Grid item xs={2}>
+                    <TextField id="time" type="date" inputProps={inputProps} />
+                </Grid>
+                <Grid item xs={3}>
                     <Controls.Select
                             label="Category"
                             name="categoryId"
@@ -40,7 +47,7 @@ export default function Expences(){
                                 onChange = {handleInputChange} />
                 
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={2.5}>
                     <Controls.Input
                                     label="Cost"
                                     name="cost"
