@@ -3,6 +3,7 @@ import { Grid, TextField } from '@mui/material';
 import { useForm, Form } from './useForm';
 import Controls from "../components/Controls/Controls";
 import Box from '@mui/material/Box';
+import DatePicker from "./DatePicker"
 
 const initialFValues = {
     id: 0,
@@ -50,8 +51,8 @@ export default function AddTripForm(){
                         onChange={handleInputChange} />
                 </Grid>
                 <Grid item xs={6}>
-                    <TextField id="time" type="date" inputProps={inputProps} />
-                    <TextField id="time" type="date" inputProps={inputProps} />
+                    <DatePicker />
+                    <DatePicker />
                 </Grid>
                 <Grid item xs={5}></Grid>
                 <Grid item xs={2}>
