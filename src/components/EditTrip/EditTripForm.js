@@ -20,10 +20,6 @@ const initialFValues = {
     sum: '0',
 }
 
-const inputProps = {
-    step: 300,
-  };
-
 export default function EditTripForm(){
 
     return (
@@ -57,9 +53,9 @@ export default function EditTripForm(){
                         <span>Sum: {initialFValues.sum}</span>
                     </Typography>
                 </Grid>
-                <Grid item xs={9.5} />
-                <Grid item xs={2.5}>
-                    <Controls.Button
+                <Grid item xs={5} />
+                <Grid item xs={7}>
+                    <Controls.Button sx={{ }}
                         type="submit"
                         text="Save travel"
                         color="primary" />
