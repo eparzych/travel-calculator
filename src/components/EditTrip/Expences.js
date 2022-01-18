@@ -50,7 +50,7 @@ export default function Expences(props) {
                 columns={columns}
                 pageSize={6}
                 disableSelectionOnClick
-            />
+            /> 
         </div>
     );
 }

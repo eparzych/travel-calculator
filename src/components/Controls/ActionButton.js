@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
     },
     secondary: {
         backgroundColor: theme.palette.secondary.light,
-        '& .MuiButton-label': {
+        '& .Button-label': {
             color: theme.palette.secondary.main,
         }
     },
     primary: {
         backgroundColor: theme.palette.primary.light,
-        '& .MuiButton-label': {
+        '& .Button-label': {
             color: theme.palette.primary.main,
         }
     },

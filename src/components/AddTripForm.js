@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, TextField } from '@mui/material';
+import { Grid, TextField, Button } from '@mui/material';
 import { useForm, Form } from './useForm';
 import Controls from "../components/Controls/Controls";
 import Box from '@mui/material/Box';
@@ -35,17 +35,17 @@ export default function AddTripForm(){
                     <h1>New Travel</h1>
                 </Grid>
                 <Grid item xs={6}>
-                    <Controls.Input
+                    <TextField
                         label="Tour name"
                         name="tourName"
                         value={values.tourName}
                         onChange = {handleInputChange} />
-                    <Controls.Input 
+                    <TextField
                         label="City"
                         name="city"
                         value={values.city} 
                         onChange={handleInputChange} />
-                    <Controls.Input 
+                    <TextField
                         label="Country"
                         name="country"
                         value={values.country} 
@@ -70,10 +70,13 @@ export default function AddTripForm(){
                 <Grid item xs={5}></Grid>
                 <Grid item xs={2}>
                     <Box sx={{ marginY: 3 }}>
-                        <Controls.Button
-                            type="submit"
-                            text="Create travel"
-                            color="primary" />
+                        <Button variant="contained"
+                                size="large"
+                                // href="#text-buttons"
+                                // type="submit"
+                        >
+                            Create Travel
+                        </Button>
                     </Box>
                 </Grid>
                 <Grid item xs={5}></Grid>

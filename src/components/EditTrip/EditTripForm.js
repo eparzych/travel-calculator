@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, TextField } from '@mui/material';
+import { Grid, TextField, Box, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useForm, Form } from '../useForm';
 import Controls from "../Controls/Controls";
@@ -79,10 +79,15 @@ export default function EditTripForm(){
 
             <Grid item xs={5} />
             <Grid item xs={7}>
-                <Controls.Button sx={{ }}
-                    type="submit"
-                    text="Save travel"
-                    color="primary" />
+                <Box sx={{ marginY: 3 }}>
+                    <Button variant="contained"
+                            size="large"
+                            // href="#text-buttons"
+                            // type="submit"
+                    >
+                        Save Travel
+                    </Button>
+                </Box>
             </Grid>
             <Grid item xs={5} />
         </Grid>
