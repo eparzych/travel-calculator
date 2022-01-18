@@ -3,7 +3,7 @@ import { Grid, TextField } from '@mui/material';
 import { useForm, Form } from './useForm';
 import Controls from "../components/Controls/Controls";
 import Box from '@mui/material/Box';
-import DatePicker from "./DatePicker"
+import DatePicker from '@mui/lab/DatePicker';
 
 const initialFValues = {
     id: 0,
@@ -24,12 +24,13 @@ export default function AddTripForm(){
         values, 
         setValues, 
         handleInputChange,
+        handleDateChange,
         resetForm
     } = useForm(initialFValues);
 
     return (
         <Form>
-            <Grid container>
+            <Grid container columnSpacing={2} >
                 <Grid item xs={12}>
                     <h1>New Travel</h1>
                 </Grid>
@@ -51,8 +52,20 @@ export default function AddTripForm(){
                         onChange={handleInputChange} />
                 </Grid>
                 <Grid item xs={6}>
-                    <DatePicker />
-                    <DatePicker />
+
+                        <DatePicker
+                            label="Start date"
+                            value={values.startDate}
+                            onChange={value => handleDateChange("startDate", value)}
+                            renderInput={(params) => <TextField {...params} />} 
+                        />
+                        <DatePicker
+                            label="End date"
+                            value={values.endDate}
+                            onChange={value => handleDateChange("endDate", value)}
+                            renderInput={(params) => <TextField {...params} />} 
+                        />
+
                 </Grid>
                 <Grid item xs={5}></Grid>
                 <Grid item xs={2}>

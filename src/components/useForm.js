@@ -13,6 +13,13 @@ export function useForm(initialFValues){
         })
     }
 
+    const handleDateChange = (name, value) => {
+        setValues({
+            ...values,
+            [name]:value
+        })
+    }
+
     const resetForm = () => {
         setValues(initialFValues);
     }
@@ -21,6 +28,7 @@ export function useForm(initialFValues){
         values,
         setValues,
         handleInputChange,
+        handleDateChange,
         resetForm
     }
 }
@@ -28,8 +36,8 @@ export function useForm(initialFValues){
 const useStyles = makeStyles(theme => ({
     root: {
         '& .MuiFormControl-root': {
-            width: '85%',
-            margin: theme.spacing(0, 0, 3, 5),
+            width: '100%',
+            margin: theme.spacing(0, 0, 3, 0),
         },
         '& h1': {
             textTransform: 'upperCase',
