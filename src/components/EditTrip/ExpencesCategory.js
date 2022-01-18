@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 export default function ExpencesCategory() {
@@ -23,9 +20,9 @@ export default function ExpencesCategory() {
         >
             <MenuItem value="transport">Transport</MenuItem>
             <MenuItem value="accomodation">Accomodation</MenuItem>
-            <MenuItem value="accomodation">Ticket</MenuItem>          
-            <MenuItem value="accomodation">Food</MenuItem>
-            <MenuItem value="accomodation">Other</MenuItem>
+            <MenuItem value="ticket">Ticket</MenuItem>          
+            <MenuItem value="food">Food</MenuItem>
+            <MenuItem value="other">Other</MenuItem>
         </Select>
   );
 }

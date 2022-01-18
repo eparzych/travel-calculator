@@ -12,7 +12,6 @@ const initialFValues = {
     country: 'Italy',
     startDate: new Date(),
     endDate: new Date(),
-    sum: '0',
     expences: [
         {
             id: 0,
@@ -37,9 +36,17 @@ const initialFValues = {
     ]
 }
 
+
 export default function EditTripForm(){
 
     const [ values, setValues ] = useState(initialFValues);
+
+    const setExpences = (value) => {
+        setValues({
+            ...values,
+            expences: value
+        })
+    }
 
     return (
         <Grid container>
@@ -63,7 +70,7 @@ export default function EditTripForm(){
                 </Typography>
             </Grid>
             <Grid item xs={12} marginY={4.5}>
-                <Expences expences={values.expences}/>
+                <Expences expences={values.expences} setExpences={setExpences}/>
             </Grid> 
 
             {/* <Grid item xs={12} marginY={4.5}>

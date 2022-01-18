@@ -14,10 +14,6 @@ const initialFValues = {
     endDate: new Date(),
 }
 
-const inputProps = {
-    step: 300,
-  };
-
 export default function AddTripForm(){
     
     const { 
@@ -59,12 +55,12 @@ export default function AddTripForm(){
                             onChange={value => handleDateChange("startDate", value)}
                             renderInput={(params) => <TextField {...params} />} 
                         />
-                        <DatePicker
-                            label="End date"
-                            value={values.endDate}
-                            onChange={value => handleDateChange("endDate", value)}
-                            renderInput={(params) => <TextField {...params} />} 
-                        />
+                            <DatePicker
+                                label="End date"
+                                value={values.endDate}
+                                onChange={value => handleDateChange("endDate", value)}
+                                renderInput={(params) => <TextField {...params} />} 
+                            />
 
                 </Grid>
                 <Grid item xs={5}></Grid>

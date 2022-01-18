@@ -4,6 +4,7 @@ import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import plLocale from 'date-fns/locale/pl';
 import AddTrip from "../pages/AddTrip";
 import EditTrip from "../pages/EditTrip"
 import { teal, brown } from '@mui/material/colors';
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}> 
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <LocalizationProvider dateAdapter={AdapterDateFns} locale={plLocale}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<AddTrip />} />
