@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 import { useForm, Form } from './useForm';
-import Controls from "../components/Controls/Controls";
 import Box from '@mui/material/Box';
 import DatePicker from '@mui/lab/DatePicker';
 
@@ -26,8 +25,8 @@ export default function AddTripForm(){
 
     return (
         <Form>
-            <Grid container columnSpacing={2} >
-                <Grid item xs={12}>
+            <Grid container columnSpacing={4} padding={5} >
+                <Grid item xs={12} >
                     <h1>New Travel</h1>
                 </Grid>
                 <Grid item xs={6}>
@@ -63,9 +62,8 @@ export default function AddTripForm(){
                             />
 
                 </Grid>
-                <Grid item xs={5}></Grid>
-                <Grid item xs={2}>
-                    <Box sx={{ marginY: 3 }}>
+                <Grid item xs={12} display="flex" justifyContent="center" alignItems="center">
+                    <Box sx={{ marginY: 6 }}>
                         <Button variant="contained"
                                 size="large"
                                 // href="#text-buttons"
@@ -75,7 +73,6 @@ export default function AddTripForm(){
                         </Button>
                     </Box>
                 </Grid>
-                <Grid item xs={5}></Grid>
             </Grid>
         </Form>
     )

@@ -20,7 +20,7 @@ export default function AddTrip(){
     return(
         <div className={classes.appMain}>
             <Container>
-                <Paper sx={{height: "90vh", background: brown[50]}} elevation={4} padding={15}>                
+                <Paper sx={{height: "90vh", background: brown[50]}} elevation={4}>                
                     <AddTripForm />
                 </Paper>
             </Container>

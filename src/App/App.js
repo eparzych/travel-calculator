@@ -17,7 +17,7 @@ const theme = createTheme({
           dark: teal[900],
           contrastText: brown[50],
       }
-  }
+  },
 })
 
 function App() {

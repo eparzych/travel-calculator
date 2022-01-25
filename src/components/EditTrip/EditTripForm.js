@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Grid, TextField, Box, Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useForm, Form } from '../useForm';
-import Controls from "../Controls/Controls";
 import Expences from "./Expences";
+
 
 const initialFValues = {
     id: 0,
@@ -49,44 +49,30 @@ export default function EditTripForm(){
     }
 
     return (
-        <Grid container>
+    <Form>
+        <Grid container padding={5} columnSpacing={4}>
             <Grid item xs={12}>
-                <Typography variant="h1" component="h1" marginLeft={5}>
-                    {values.tourName}
-                </Typography>
+                <h1>{values.tourName}</h1>
             </Grid>
             <Grid item xs={12}>
-                <Typography variant="subtitle1" component="p" marginLeft={5}>
+                <p>
                     <span>City:</span> {values.city}
-                </Typography>
-                <Typography variant="subtitle1" component="p" marginLeft={5}>
+                </p>
+                <p>
                     <span>Country:</span> {values.country}
-                </Typography>
-                <Typography variant="subtitle1" component="p" marginLeft={5}>
+                </p>
+                <p>
                     <span>Start date:</span> {values.startDate.toString()}
-                </Typography>
-                <Typography variant="subtitle1" component="p" marginLeft={5}>
+                </p>
+                <p>
                     <span>End date:</span> {values.endDate.toString()} 
-                </Typography>
+                </p>
             </Grid>
             <Grid item xs={12} marginY={4.5}>
                 <Expences expences={values.expences} setExpences={setExpences}/>
             </Grid> 
-
-            {/* <Grid item xs={12} marginY={4.5}>
-                {values.expences.map(expense => <Expences />)}
-            </Grid>
-            <Grid item xs={8.5}/>
-            <Grid item xs={3.5} marginBottom={3}>
-                <Typography variant="subtitle1" component="p">
-                    <span>Sum: {initialFValues.sum}</span>
-                </Typography>
-            </Grid> */}
-
-
-            <Grid item xs={5} />
-            <Grid item xs={7}>
-                <Box sx={{ marginY: 3 }}>
+            <Grid item xs={12} >
+                <Box sx={{ marginY: 3 }} display="flex" justifyContent="center" alignItems="center">
                     <Button variant="contained"
                             size="large"
                             // href="#text-buttons"
@@ -96,8 +82,8 @@ export default function EditTripForm(){
                     </Button>
                 </Box>
             </Grid>
-            <Grid item xs={5} />
         </Grid>
+    </Form>
     )
 }
 
