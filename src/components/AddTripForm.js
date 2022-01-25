@@ -13,15 +13,32 @@ const initialFValues = {
     endDate: new Date(),
 }
 
+
 export default function AddTripForm(){
+
+    const buttonSubmit = (e) => {
+        e.preventDefault();
+
+        fetch("http://localhost:3000/edit/a", {
+            method: "POST",
+            body: JSON.stringify(values),            
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        console.log(values)
+    
+    };
     
     const { 
         values, 
         setValues, 
         handleInputChange,
         handleDateChange,
-        resetForm
+        resetForm,
     } = useForm(initialFValues);
+
+    
 
     return (
         <Form>
@@ -66,8 +83,7 @@ export default function AddTripForm(){
                     <Box sx={{ marginY: 6 }}>
                         <Button variant="contained"
                                 size="large"
-                                // href="#text-buttons"
-                                // type="submit"
+                                onClick={ buttonSubmit }
                         >
                             Create Travel
                         </Button>

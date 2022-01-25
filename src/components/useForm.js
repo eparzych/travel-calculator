@@ -29,7 +29,7 @@ export function useForm(initialFValues){
         setValues,
         handleInputChange,
         handleDateChange,
-        resetForm
+        resetForm,
     }
 }
 
