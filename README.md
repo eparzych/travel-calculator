@@ -8,11 +8,13 @@ The aplication is used to save the cost of trips.
 - Emotion
 - GRID
 - Create React App
+- JSON Server
 
 ## Screenshots
 
 ## Setup
 - npm install --dev
+- json-server --watch db.json --port 3001
 - npm start
 
 ## Contact

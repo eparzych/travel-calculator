@@ -1,19 +1,65 @@
 {
-  "posts": [
+  "trips": [
+    {
+      "id": 0,
+      "tourName": "Dolomity",
+      "city": "Passo del Tonale",
+      "country": "Italy",
+      "startDate": "",
+      "endDate": "",
+      "expences": [
+        {
+          "id": 0,
+          "date": "",
+          "categoryId": "",
+          "name": "",
+          "cost": ""
+        },
+        {
+          "id": 1,
+          "date": "",
+          "categoryId": "",
+          "name": "",
+          "cost": ""
+        },
+        {
+          "id": 2,
+          "date": "",
+          "categoryId": "",
+          "name": "",
+          "cost": ""
+        },
+        {
+          "id": 3,
+          "date": "",
+          "categoryId": "",
+          "name": "",
+          "cost": ""
+        },
+        {
+          "id": 4,
+          "date": "",
+          "categoryId": "",
+          "name": "",
+          "cost": ""
+        }
+      ]
+    },
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "tourName": "",
+      "city": "",
+      "country": "",
+      "startDate": "2022-01-26T21:25:03.260Z",
+      "endDate": "2022-01-26T21:25:03.260Z"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "tourName": "",
+      "city": "",
+      "country": "",
+      "startDate": "2022-01-26T21:32:01.869Z",
+      "endDate": "2022-01-26T21:32:01.869Z"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
