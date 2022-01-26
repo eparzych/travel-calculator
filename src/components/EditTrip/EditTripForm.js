@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Box, Button } from '@mui/material';
-import Typography from '@mui/material/Typography';
 import { useForm, Form } from '../useForm';
 import Expences from "./Expences";
-
 
 const initialFValues = {
     id: 0,
@@ -28,6 +26,40 @@ const initialFValues = {
             cost: ''
         },        {
             id: 2,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 3,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 4,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },        {
+            id: 5,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 6,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 7,
             date: new Date(),
             categoryId: '',
             name: '',
@@ -62,10 +94,10 @@ export default function EditTripForm(){
                     <span>Country:</span> {values.country}
                 </p>
                 <p>
-                    <span>Start date:</span> {values.startDate.toString()}
+                    <span>Start date:</span> {values.startDate.toLocaleDateString()}
                 </p>
                 <p>
-                    <span>End date:</span> {values.endDate.toString()} 
+                    <span>End date:</span> {values.endDate.toLocaleDateString()} 
                 </p>
             </Grid>
             <Grid item xs={12} marginY={4.5}>
@@ -73,11 +105,7 @@ export default function EditTripForm(){
             </Grid> 
             <Grid item xs={12} >
                 <Box sx={{ marginY: 3 }} display="flex" justifyContent="center" alignItems="center">
-                    <Button variant="contained"
-                            size="large"
-                            // href="#text-buttons"
-                            // type="submit"
-                    >
+                    <Button variant="contained" size="large">
                         Save Travel
                     </Button>
                 </Box>
