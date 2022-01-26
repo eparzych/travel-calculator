@@ -5,10 +5,31 @@ import { Container, Paper } from '@mui/material';
 import Routing from './Routing';
 
 const useStyles = makeStyles(theme => ({
+
     appMain: {
         height: '100vh',
         padding: '5vh',
-        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')"
+        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')",
+        '& .MuiFormControl-root': {
+            width: '100%',
+            margin: theme.spacing(1, 0, 1, 0),
+        },
+        '& h1': {
+            textTransform: 'upperCase',
+            margin: theme.spacing(2, 0, 5),
+            fontSize: '52px',
+            fontWeight: "500",
+        },
+        '& p': {
+            marginLeft: theme.spacing(5),
+            marginBottom: theme.spacing(1),
+            fontSize: '20px'
+        },
+        '& p span': {
+            textTransform: 'upperCase',
+            fontSize: '22px',
+            fontWeight: "600",
+        },
     },
 }))
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Button } from '@mui/material';
 import { useForm, Form } from '../components/useForm';
-import Box from '@mui/material/Box';
 import DatePicker from '@mui/lab/DatePicker';
 import { API } from '../config';
 
@@ -86,15 +85,13 @@ export default function AddTrip(){
                             />
 
                 </Grid>
-                <Grid item xs={12} display="flex" justifyContent="center" alignItems="center">
-                    <Box sx={{ marginY: 6 }}>
-                        <Button variant="contained"
-                                size="large"
-                                onClick={ buttonSubmit }
-                        >
-                            Create Travel
-                        </Button>
-                    </Box>
+                <Grid item xs={12} display="flex" justifyContent="center" alignItems="center" marginY= {6}>
+                    <Button variant="contained"
+                            size="large"
+                            onClick={ buttonSubmit }
+                    >
+                        Create Travel
+                    </Button>
                 </Grid>
             </Grid>
         </Form>

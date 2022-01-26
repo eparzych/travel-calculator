@@ -34,28 +34,7 @@ export function useForm(initialFValues){
 }
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        '& .MuiFormControl-root': {
-            width: '100%',
-            margin: theme.spacing(1, 0, 1, 0),
-        },
-        '& h1': {
-            textTransform: 'upperCase',
-            margin: theme.spacing(2, 0, 5),
-            fontSize: '52px',
-            fontWeight: "500",
-        },
-        '& p': {
-            marginLeft: theme.spacing(5),
-            marginBottom: theme.spacing(1),
-            fontSize: '20px'
-        },
-        '& p span': {
-            textTransform: 'upperCase',
-            fontSize: '22px',
-            fontWeight: "600",
-        },
-    },
+
 }))
 
 export function Form(props){
