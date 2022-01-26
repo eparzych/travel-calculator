@@ -1,29 +1,117 @@
-import React from 'react';
-import { makeStyles} from '@mui/styles';
-import { brown } from '@mui/material/colors';
-import { Container, Paper } from '@mui/material';
-import EditTripForm from "../components/EditTrip/EditTripForm";
+import React, { useState } from 'react';
+import { Grid, Box, Button } from '@mui/material';
+import { useForm, Form } from '../components/useForm';
+import Expences from "../components/EditTrip/Expences";
 
+const initialFValues = {
+    id: 0,
+    tourName:'Dolomity',
+    city:'Passo del Tonale',
+    country: 'Italy',
+    startDate: new Date(),
+    endDate: new Date(),
+    expences: [
+        {
+            id: 0,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 1,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },        {
+            id: 2,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 3,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 4,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },        {
+            id: 5,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 6,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+        {
+            id: 7,
+            date: new Date(),
+            categoryId: '',
+            name: '',
+            cost: ''
+        },
+    ]
+}
 
-const useStyles = makeStyles(theme => ({
-    appMain: {
-        height: '100vh',
-        padding: '5vh',
-        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')"
-    },
-}))
 
 export default function EditTrip(){
 
-    const classes = useStyles();
+    const [ values, setValues ] = useState(initialFValues);
 
-    return(
-        <div className={classes.appMain}>
-            <Container>
-                <Paper sx={{height: "90vh", background: brown[50]}} elevation={4}>                
-                    <EditTripForm />
-                </Paper>
-            </Container>
-        </div>
+    const setExpences = (value) => {
+        setValues({
+            ...values,
+            expences: value
+        })
+    }
+
+    return (
+    <Form>
+        <Grid container padding={5} columnSpacing={4}>
+            <Grid item xs={12}>
+                <h1>{values.tourName}</h1>
+            </Grid>
+            <Grid item xs={12}>
+                <p>
+                    <span>City:</span> {values.city}
+                </p>
+                <p>
+                    <span>Country:</span> {values.country}
+                </p>
+                <p>
+                    <span>Start date:</span> {values.startDate.toLocaleDateString()}
+                </p>
+                <p>
+                    <span>End date:</span> {values.endDate.toLocaleDateString()} 
+                </p>
+            </Grid>
+            <Grid item xs={12} marginY={4.5}>
+                <Expences expences={values.expences} setExpences={setExpences}/>
+            </Grid> 
+            <Grid item xs={12} >
+                <Box sx={{ marginY: 3 }} display="flex" justifyContent="center" alignItems="center">
+                    <Button variant="contained" size="large">
+                        Save Travel
+                    </Button>
+                </Box>
+            </Grid>
+        </Grid>
+    </Form>
     )
 }
+

@@ -1,29 +1,102 @@
-import React from 'react';
-import { makeStyles} from '@mui/styles';
-import { Container, Paper } from '@mui/material';
-import AddTripForm from "../components/AddTripForm";
-import { brown } from '@mui/material/colors';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Grid, TextField, Button } from '@mui/material';
+import { useForm, Form } from '../components/useForm';
+import Box from '@mui/material/Box';
+import DatePicker from '@mui/lab/DatePicker';
+import { API } from '../config';
 
-
-const useStyles = makeStyles(theme => ({
-    appMain: {
-        height: '100vh',
-        padding: '5vh 0',
-        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')"
-    },
-}))
+const initialFValues = {
+    id: 0,
+    tourName:'',
+    city:'',
+    country: '',
+    startDate: new Date(),
+    endDate: new Date(),
+}
 
 export default function AddTrip(){
+    
+    const { 
+        values, 
+        setValues, 
+        handleInputChange,
+        handleDateChange,
+        resetForm,
+    } = useForm(initialFValues);
 
-    const classes = useStyles();
+    const navigate = useNavigate();
 
-    return(
-        <div className={classes.appMain}>
-            <Container>
-                <Paper sx={{height: "90vh", background: brown[50]}} elevation={4}>                
-                    <AddTripForm />
-                </Paper>
-            </Container>
-        </div>
+    const buttonSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`${API}/trips/`, {
+            method: "POST",
+            body: JSON.stringify(values),            
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            navigate("/edit/" + data.id);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    };
+
+    return (
+        <Form>
+            <Grid container columnSpacing={4} padding={5} >
+                <Grid item xs={12} >
+                    <h1>New Travel</h1>
+                </Grid>
+                <Grid item xs={6}>
+                    <TextField
+                        label="Tour name"
+                        name="tourName"
+                        value={values.tourName}
+                        onChange = {handleInputChange} />
+                    <TextField
+                        label="City"
+                        name="city"
+                        value={values.city} 
+                        onChange={handleInputChange} />
+                    <TextField
+                        label="Country"
+                        name="country"
+                        value={values.country} 
+                        onChange={handleInputChange} />
+                </Grid>
+                <Grid item xs={6}>
+
+                        <DatePicker
+                            label="Start date"
+                            value={values.startDate}
+                            onChange={value => handleDateChange("startDate", value)}
+                            renderInput={(params) => <TextField {...params} />} 
+                        />
+                            <DatePicker
+                                label="End date"
+                                value={values.endDate}
+                                onChange={value => handleDateChange("endDate", value)}
+                                renderInput={(params) => <TextField {...params} />} 
+                            />
+
+                </Grid>
+                <Grid item xs={12} display="flex" justifyContent="center" alignItems="center">
+                    <Box sx={{ marginY: 6 }}>
+                        <Button variant="contained"
+                                size="large"
+                                onClick={ buttonSubmit }
+                        >
+                            Create Travel
+                        </Button>
+                    </Box>
+                </Grid>
+            </Grid>
+        </Form>
     )
 }
