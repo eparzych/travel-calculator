@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Button } from '@mui/material';
 import { useForm, Form } from './useForm';
 import Box from '@mui/material/Box';
 import DatePicker from '@mui/lab/DatePicker';
+import { API } from '../config.js';
 
 const initialFValues = {
     id: 0,
@@ -13,22 +15,7 @@ const initialFValues = {
     endDate: new Date(),
 }
 
-
 export default function AddTripForm(){
-
-    const buttonSubmit = (e) => {
-        e.preventDefault();
-
-        fetch("http://localhost:3000/edit/a", {
-            method: "POST",
-            body: JSON.stringify(values),            
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        console.log(values)
-    
-    };
     
     const { 
         values, 
@@ -38,7 +25,27 @@ export default function AddTripForm(){
         resetForm,
     } = useForm(initialFValues);
 
-    
+    const navigate = useNavigate();
+
+    const buttonSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`${API}/trips/`, {
+            method: "POST",
+            body: JSON.stringify(values),            
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            navigate("/edit/" + data.id);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    };
 
     return (
         <Form>

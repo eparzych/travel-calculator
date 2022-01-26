@@ -17,6 +17,7 @@ export default function Expences(props) {
                 return expence
             }
         }))
+        console.log(expences)
     }
     
     const columns = [
@@ -61,7 +62,7 @@ export default function Expences(props) {
                 autoHeight
                 rows={expences}
                 columns={columns}
-                pageSize={5}
+                pageSize={6}
                 disableSelectionOnClick
             /> 
         </div>
