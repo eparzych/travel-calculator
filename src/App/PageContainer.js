@@ -30,6 +30,10 @@ const useStyles = makeStyles(theme => ({
             fontSize: '22px',
             fontWeight: "600",
         },
+        '& .imgCard': {
+            width: '100%',
+            height: '6.5rem',
+        }
     },
 }))
 

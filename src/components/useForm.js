@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { makeStyles } from "@mui/styles";
 
 export function useForm(initialFValues){
 
@@ -33,16 +32,10 @@ export function useForm(initialFValues){
     }
 }
 
-const useStyles = makeStyles(theme => ({
-
-}))
-
 export function Form(props){
 
-    const classes = useStyles();
-
     return (
-        <form className={classes.root}>
+        <form>
             {props.children}
         </form>
     )

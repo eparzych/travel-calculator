@@ -48,7 +48,6 @@ export default function EditTrip(){
         })
     }
 
-
     const buttonSubmit = (e) => {
         e.preventDefault();
 

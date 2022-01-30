@@ -47,7 +47,7 @@
     },
     {
       "id": 1,
-      "tourName": "",
+      "tourName": "Tatry",
       "city": "",
       "country": "",
       "startDate": "2022-01-26T21:25:03.260Z",
@@ -55,11 +55,19 @@
     },
     {
       "id": 2,
-      "tourName": "",
+      "tourName": "Gdańsk",
       "city": "",
       "country": "",
       "startDate": "2022-01-26T21:32:01.869Z",
       "endDate": "2022-01-26T21:32:01.869Z"
+    },
+    {
+      "id": 3,
+      "tourName": "Tatry",
+      "city": "",
+      "country": "",
+      "startDate": "2022-01-26T21:25:03.260Z",
+      "endDate": "2022-01-26T21:25:03.260Z"
     }
   ]
 }
