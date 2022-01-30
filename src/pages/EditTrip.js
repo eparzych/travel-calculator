@@ -5,11 +5,29 @@ import { useForm, Form } from '../components/useForm';
 import Expences from "../components/EditTrip/Expences";
 import { API } from "../config";
 
+function sumExpences (expences){
+    let sum = expences.reduce((prev, curr) => {
+        return prev + curr.cost;
+    }, 0)
+    return sum;
+}
 
 export default function EditTrip(){
     
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const initialFValues = {
+        tourName: "",
+        city: "",
+        country: "",
+        startDate: "",
+        endDate: "",
+        totalCost: 0,
+        expences: []
+    }
+
+    const [ values, setValues ] = useState(initialFValues);
 
     useEffect(() => {
         fetch(`${API}/trips/${id}`)
@@ -29,16 +47,12 @@ export default function EditTrip(){
             });
     }, []);
 
-    const initialFValues = {
-        tourName: "",
-        city: "",
-        country: "",
-        startDate: "",
-        endDate: "",
-        expences: []
-    }
-
-    const [ values, setValues ] = useState(initialFValues);
+    useEffect(() => {
+        let sum = sumExpences(values.expences);
+        if (sum != values.totalCost) {
+            setValues({...values, totalCost: sum});
+        }
+    }, [values]);
     
     const setExpences = (value) => {
         setValues({
@@ -54,7 +68,7 @@ export default function EditTrip(){
                 date: new Date(),
                 categoryId: '',
                 name: '',
-                cost: ''
+                cost: 0
             },
         ]) 
     }
@@ -99,7 +113,10 @@ export default function EditTrip(){
                     <span>End date:</span> {values.endDate} 
                 </p>
             </Grid>
-            <Grid item xs={12} display="flex" justifyContent="flex-end">
+            <Grid item xs={8} display="flex" justifyContent="flex-end">
+                <h2>Total Cost: {values.totalCost}  </h2>
+            </Grid>
+            <Grid item xs={4} display="flex" justifyContent="flex-end">
                 <Button variant="contained" size="medium" onClick={addExpence}>
                     Add expence
                 </Button>
@@ -118,4 +135,3 @@ export default function EditTrip(){
     </Form>
     )
 }
-
