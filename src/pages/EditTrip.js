@@ -40,12 +40,23 @@ export default function EditTrip(){
 
     const [ values, setValues ] = useState(initialFValues);
     
-
     const setExpences = (value) => {
         setValues({
             ...values,
             expences: value
         })
+    }
+
+    const addExpence = () => {
+        setExpences([...values.expences,  
+            {
+                id: values.expences.length,
+                date: new Date(),
+                categoryId: '',
+                name: '',
+                cost: ''
+            },
+        ]) 
     }
 
     const buttonSubmit = (e) => {
@@ -87,6 +98,11 @@ export default function EditTrip(){
                 <p>
                     <span>End date:</span> {values.endDate} 
                 </p>
+            </Grid>
+            <Grid item xs={12} display="flex" justifyContent="flex-end">
+                <Button variant="contained" size="medium" onClick={addExpence}>
+                    Add expence
+                </Button>
             </Grid>
             <Grid item xs={12} marginY={4.5}>
                 <Expences expences={values.expences} setExpences={setExpences}/>
