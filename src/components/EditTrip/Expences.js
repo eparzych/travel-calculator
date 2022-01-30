@@ -4,20 +4,28 @@ import { TextField } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
 import ExpencesCategory from "./ExpencesCategory";
 
-
-
 export default function Expences(props) {
     const { expences, setExpences } = props;
 
-    const handleDateChange = (id, name, value) => {
+    // const handleDateChange = (id, name, value) => {
+    //     setExpences(expences.map(expence => {
+    //         if (expence.id == id) {
+    //             return { ...expence, [name]:value }
+    //         } else {
+    //             return expence
+    //         }
+    //     }))
+    //     console.log(expences)
+    // }
+
+    const handleCommit = (e) => {
         setExpences(expences.map(expence => {
-            if (expence.id == id) {
-                return { ...expence, [name]:value }
+            if (expence.id == e.id) {
+                return { ...expence, [e.field]:e.value }
             } else {
                 return expence
             }
         }))
-        console.log(expences)
     }
     
     const columns = [
@@ -25,13 +33,14 @@ export default function Expences(props) {
             field: 'date', 
             headerName: 'Date', 
             editable: true, 
+            type: 'date',
             width: 200,
-            renderCell: (params) =>
-                <DatePicker
-                    value={params.value}
-                    onChange={value => {handleDateChange(params.id, "date", value)}}
-                    renderInput={(params) => <TextField {...params} />} 
-            />
+        //     renderCell: (params) =>
+        //         <DatePicker
+        //             value={params.value}
+        //             // onChange={value => {handleDateChange(params.id, "date", value)}}
+        //             renderInput={(params) => <TextField {...params} />} 
+        //     />
         },
         {
             field: 'categoryId',
@@ -58,7 +67,7 @@ export default function Expences(props) {
     
     return (
         <div style={{ height: '400px', width: '100%' }}>
-            <DataGrid
+            <DataGrid onCellEditCommit = {handleCommit}
                 autoHeight
                 rows={expences}
                 columns={columns}
