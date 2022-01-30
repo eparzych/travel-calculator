@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Grid, Button } from '@mui/material';
+import { Grid, Box, Button } from '@mui/material';
+import { spacing } from '@mui/system';
 import { API } from "../config";
+import TourCard from "../components/TourCard";
 
 export default function Home(){
 
-    const [trips, setTrips] = useState()
+    const [trips, setTrips] = useState([]);
 
     useEffect(() => {
         fetch(`${API}/trips`)
@@ -26,15 +28,23 @@ export default function Home(){
     }, []);
 
  return (
-    <Grid container columnSpacing={0} padding={5} >
+    <Grid container columnSpacing={5} padding={5} >
         <Grid item xs={12} display="flex" justifyContent="center" >
             <h1>Welcome to Travel Calculator!</h1>
         </Grid>
-        <Grid item xs={12} display="flex" justifyContent="center" marginY={3}>
-            <Button component={Link} to="/add" variant="contained" color="primary" size="large">
+        <Grid item xs={12} display="flex" justifyContent="center" marginBottom={5}>
+            <Button xs={{pb: 1}} component={Link} to="/add" variant="contained" color="primary" size="large">
                 Create Travel
             </Button>
         </Grid>
+        {trips.map(trip =>
+                <TourCard 
+                    key={trip.id} 
+                    trip={trip} 
+                     />
+        )}
+
+
      </Grid>
  )
 }

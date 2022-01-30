@@ -1,18 +1,20 @@
 import { Grid, Paper, Box, Button } from '@mui/material';
+import { Link } from "react-router-dom";
+import { spacing } from '@mui/system';
 
 export default function TourCard (props){
 
     const { trip } = props;
 
     return(
-        <Grid item xs={3}>
-            <Paper elevation={3}>
+        <Grid item xs={3} component={Link} to={`/edit/${trip.id}`} style={{textDecoration: 'none'}}>
+            <Paper elevation={3} >
                 <img className="imgCard" src="https://media.istockphoto.com/photos/fugu-fish-caught-while-fishing-in-siam-bay-picture-id187011673?s=612x612" alt="fish" />
                 <Box paddingY={1} display="flex" justifyContent="center">
                     <h2>{trip.tourName}</h2>
                 </Box>
-                <Box>
-                    <p>Cost: </p>
+                <Box sx={{pb: 1}} display="flex" justifyContent="center">
+                    <span>Cost: </span>
                 </Box>
             </Paper>
         </Grid>

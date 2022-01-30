@@ -3,6 +3,7 @@ import { makeStyles} from '@mui/styles';
 import { brown } from '@mui/material/colors';
 import { Container, Paper } from '@mui/material';
 import Routing from './Routing';
+import { NoEncryption } from '@mui/icons-material';
 
 const useStyles = makeStyles(theme => ({
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
         },
         '& p': {
             marginLeft: theme.spacing(5),
-            marginBottom: theme.spacing(1),
+            // marginBottom: theme.spacing(1),
             fontSize: '20px'
         },
         '& p span': {
