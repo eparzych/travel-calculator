@@ -12,6 +12,7 @@ const initialFValues = {
     country: '',
     startDate: new Date(),
     endDate: new Date(),
+    expences: []
 }
 
 export default function AddTrip(){

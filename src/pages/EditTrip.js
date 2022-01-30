@@ -1,77 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Grid, Box, Button } from '@mui/material';
 import { useForm, Form } from '../components/useForm';
 import Expences from "../components/EditTrip/Expences";
-
-const initialFValues = {
-    id: 0,
-    tourName:'Dolomity',
-    city:'Passo del Tonale',
-    country: 'Italy',
-    startDate: new Date(),
-    endDate: new Date(),
-    expences: [
-        {
-            id: 0,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-        {
-            id: 1,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },        {
-            id: 2,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-        {
-            id: 3,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-        {
-            id: 4,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },        {
-            id: 5,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-        {
-            id: 6,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-        {
-            id: 7,
-            date: new Date(),
-            categoryId: '',
-            name: '',
-            cost: ''
-        },
-    ]
-}
+import { API } from "../config";
 
 
 export default function EditTrip(){
+    
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch(`${API}/trips/${id}`)
+        .then(response => {
+            if (response.ok)
+                return response.json();
+            else
+                throw new Error('Błąd sieci!');
+        }).then(data => {
+            console.log(data);
+            if(data) {
+                setValues(data);
+            }
+            })
+        .catch(error => {
+            console.log(error);
+            });
+    }, []);
+
+    const initialFValues = {
+        tourName: "",
+        city: "",
+        country: "",
+        startDate: "",
+        endDate: "",
+        expences: []
+    }
 
     const [ values, setValues ] = useState(initialFValues);
+    
 
     const setExpences = (value) => {
         setValues({
@@ -79,6 +47,27 @@ export default function EditTrip(){
             expences: value
         })
     }
+
+
+    const buttonSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(`${API}/trips/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(values),            
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            navigate("/") ;
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    };
 
     return (
     <Form>
@@ -94,10 +83,10 @@ export default function EditTrip(){
                     <span>Country:</span> {values.country}
                 </p>
                 <p>
-                    <span>Start date:</span> {values.startDate.toLocaleDateString()}
+                    <span>Start date:</span> {values.startDate}
                 </p>
                 <p>
-                    <span>End date:</span> {values.endDate.toLocaleDateString()} 
+                    <span>End date:</span> {values.endDate} 
                 </p>
             </Grid>
             <Grid item xs={12} marginY={4.5}>
@@ -105,7 +94,7 @@ export default function EditTrip(){
             </Grid> 
             <Grid item xs={12} >
                 <Box sx={{ marginY: 3 }} display="flex" justifyContent="center" alignItems="center">
-                    <Button variant="contained" size="large">
+                    <Button variant="contained" size="large" onClick={buttonSubmit}>
                         Save Travel
                     </Button>
                 </Box>
