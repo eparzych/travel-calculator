@@ -28,7 +28,7 @@ export default function Home(){
     }, []);
 
  return (
-    <Grid container columnSpacing={5} padding={5} >
+    <Grid container columnSpacing={2} padding={5}>
         <Grid item xs={12} display="flex" justifyContent="center" >
             <h1>Welcome to Travel Calculator!</h1>
         </Grid>
@@ -37,12 +37,18 @@ export default function Home(){
                 Create Travel
             </Button>
         </Grid>
-        {trips.map(trip =>
-                <TourCard 
-                    key={trip.id} 
-                    trip={trip} 
-                     />
-        )}
+        <Grid item xs={12} display="flex" justifyContent="flexStart" flexWrap="wrap" height="calc(90vh - 290px)" overflow="auto">
+
+                {trips.map(trip =>
+                    <Grid item xs={3} padding={1} >
+                        <TourCard 
+                            key={trip.id} 
+                            trip={trip} />
+                    </Grid>
+                )}
+
+        </Grid>
+
 
 
      </Grid>
