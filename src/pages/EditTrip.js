@@ -114,7 +114,7 @@ export default function EditTrip(){
                 </p>
             </Grid>
             <Grid item xs={8} display="flex" justifyContent="flex-end">
-                <h2>Total Cost: {values.totalCost}  </h2>
+                <h2>Total Cost: {values.totalCost} zł</h2>
             </Grid>
             <Grid item xs={4} display="flex" justifyContent="flex-end">
                 <Button variant="contained" size="medium" onClick={addExpence}>

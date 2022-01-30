@@ -2,7 +2,6 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { TextField } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
-import ExpencesCategory from "./ExpencesCategory";
 
 export default function Expences(props) {
     const { expences, setExpences } = props;
@@ -47,8 +46,14 @@ export default function Expences(props) {
             headerName: 'Category',
             width: 250,
             editable: true,
-            renderCell: (params) =>
-                <ExpencesCategory />
+            type: 'singleSelect',
+            valueOptions: [
+                "transport",
+                "accomodation",
+                "ticket",         
+                "food",
+                "other"
+            ]
         },
         {
             field: 'name',
@@ -58,7 +63,7 @@ export default function Expences(props) {
         },
         {
             field: 'cost',
-            headerName: 'Cost',
+            headerName: 'Cost [zł]',
             type: 'number',
             width: 200,
             editable: true,
@@ -68,10 +73,11 @@ export default function Expences(props) {
     return (
         <div style={{ height: '400px', width: '100%' }}>
             <DataGrid onCellEditCommit = {handleCommit}
-                autoHeight
+                // height = {200}
                 rows={expences}
+                rowHeight= {35}
                 columns={columns}
-                pageSize={6}
+                pageSize={40}
                 disableSelectionOnClick
             /> 
         </div>
