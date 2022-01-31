@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Grid, Box, Button } from '@mui/material';
 import { useForm, Form } from '../components/useForm';
 import Expences from "../components/EditTrip/Expences";
+import Chart from "../components/Chart";
 import { API } from "../config";
 
 function sumExpences (expences){
@@ -95,11 +96,9 @@ export default function EditTrip(){
 
     return (
     <Form>
-        <Grid container padding={5} columnSpacing={4}>
-            <Grid item xs={12}>
+        <Grid container padding={5} columnSpacing={4} >
+            <Grid item xs={6}>
                 <h1>{values.tourName}</h1>
-            </Grid>
-            <Grid item xs={12}>
                 <p>
                     <span>City:</span> {values.city}
                 </p>
@@ -113,6 +112,9 @@ export default function EditTrip(){
                     <span>End date:</span> {values.endDate} 
                 </p>
             </Grid>
+            <Grid item xs={6} >
+                <Chart expences = { values.expences } />
+            </Grid>
             <Grid item xs={8} display="flex" justifyContent="flex-end">
                 <h2>Total Cost: {values.totalCost} zł</h2>
             </Grid>
@@ -125,7 +127,7 @@ export default function EditTrip(){
                 <Expences expences={values.expences} setExpences={setExpences}/>
             </Grid> 
             <Grid item xs={12} >
-                <Box sx={{ marginY: 3 }} display="flex" justifyContent="center" alignItems="center">
+                <Box sx={{ marginY: 1 }} display="flex" justifyContent="center" alignItems="center">
                     <Button variant="contained" size="large" onClick={buttonSubmit}>
                         Save Travel
                     </Button>

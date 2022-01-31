@@ -5,7 +5,6 @@ import { spacing } from '@mui/system';
 export default function TourCard (props){
 
     const { trip } = props;
-    console.log(trip);
 
     return(
         <Box component={Link} to={`/edit/${trip.id}`} style={{textDecoration: 'none'}}>

@@ -3,6 +3,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import { TextField } from '@mui/material';
 import DatePicker from '@mui/lab/DatePicker';
 
+
+export const expenceCategories = [
+    "transport",
+    "accomodation",
+    "ticket",         
+    "food",
+    "other"
+]
+
 export default function Expences(props) {
     const { expences, setExpences } = props;
 
@@ -47,13 +56,7 @@ export default function Expences(props) {
             width: 250,
             editable: true,
             type: 'singleSelect',
-            valueOptions: [
-                "transport",
-                "accomodation",
-                "ticket",         
-                "food",
-                "other"
-            ]
+            valueOptions: expenceCategories,
         },
         {
             field: 'name',
