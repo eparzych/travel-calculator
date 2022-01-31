@@ -37,10 +37,10 @@ export default function Home(){
                 Create Travel
             </Button>
         </Grid>
-        <Grid item xs={12} display="flex" justifyContent="flexStart" flexWrap="wrap" height="calc(90vh - 290px)" overflow="auto">
+        <Grid item xs={12} display="flex" alignItems="flex-start" flexWrap="wrap" maxHeight="calc(90vh - 290px)" overflow="auto" >
 
                 {trips.map(trip =>
-                    <Grid item xs={3} padding={1} >
+                    <Grid item xs={3} paddingX={1} >
                         <TourCard 
                             key={trip.id} 
                             trip={trip} />
@@ -48,9 +48,6 @@ export default function Home(){
                 )}
 
         </Grid>
-
-
-
      </Grid>
  )
 }
