@@ -18,7 +18,7 @@ export default function Chart(props) {
         }, 0);
       
       if (sum != 0) {
-        
+
         newData.push({ name: category, value: sum });
       }
     })
@@ -26,9 +26,9 @@ export default function Chart(props) {
   }, [expences]);
   
   return (
-    <div style={{ width: "100%", height: "250px", margin: "15px 0"}}>
-      <ResponsiveContainer >
-        <PieChart>
+    <div style={{ width: "100%", height: "250px" }}>
+      <ResponsiveContainer>
+        <PieChart margin={{top:15, right:15, bottom:15, left:15}}>
           <Pie dataKey="value"
             data={data} 
             label={(el) => el.name}

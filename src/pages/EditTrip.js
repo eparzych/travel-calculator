@@ -95,7 +95,7 @@ export default function EditTrip(){
 
     return (
         <Grid container height={100} padding={5} columnSpacing={4} >
-            <Grid item  xs={12} sm={6}>
+            <Grid item  xs={12} sm={7}>
                 <h1>{values.tourName}</h1>
                 <p>
                     <span>City:</span> {values.city}
@@ -110,7 +110,7 @@ export default function EditTrip(){
                     <span>End date:</span> {values.endDate} 
                 </p>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={5}>
                 <Chart expences = { values.expences } />
             </Grid>
             <Grid item xs={12} sm={8} display="flex" justifyContent="flex-end" sx={{ marginY:1.5}}>
