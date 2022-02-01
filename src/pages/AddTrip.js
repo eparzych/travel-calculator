@@ -16,10 +16,19 @@ const initialFValues = {
 }
 
 export default function AddTrip(){
+
+    const validate = () => {
+        let temp = {}
+        temp.tourName = values.tourName ? "" : "This field is required"
+        setErrors(temp);
+        return Object.values(temp).every(x => x == "")
+    }
     
     const { 
         values, 
         setValues, 
+        errors,
+        setErrors,
         handleInputChange,
         handleDateChange,
         resetForm,
@@ -30,22 +39,25 @@ export default function AddTrip(){
     const buttonSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`${API}/trips/`, {
-            method: "POST",
-            body: JSON.stringify(values),            
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            navigate("/edit/" + data.id);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    };
+        if(validate()){
+
+            fetch(`${API}/trips/`, {
+                method: "POST",
+                body: JSON.stringify(values),            
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                navigate("/edit/" + data.id);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        };
+    } 
 
     return (
         <Form>
@@ -58,7 +70,9 @@ export default function AddTrip(){
                         label="Tour name"
                         name="tourName"
                         value={values.tourName}
-                        onChange = {handleInputChange} />
+                        error={errors.tourName}
+                        helperText={errors.tourName}
+                        onChange={handleInputChange} />
                     <TextField
                         label="City"
                         name="city"
@@ -71,26 +85,23 @@ export default function AddTrip(){
                         onChange={handleInputChange} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-
-                        <DatePicker
-                            label="Start date"
-                            value={values.startDate}
-                            onChange={value => handleDateChange("startDate", value)}
-                            renderInput={(params) => <TextField {...params} />} 
-                        />
-                            <DatePicker
-                                label="End date"
-                                value={values.endDate}
-                                onChange={value => handleDateChange("endDate", value)}
-                                renderInput={(params) => <TextField {...params} />} 
-                            />
-
+                    <DatePicker
+                        label="Start date"
+                        value={values.startDate}
+                        onChange={value => handleDateChange("startDate", value)}
+                        renderInput={(params) => <TextField {...params} />} 
+                    />
+                    <DatePicker
+                        label="End date"
+                        value={values.endDate}
+                        onChange={value => handleDateChange("endDate", value)}
+                        renderInput={(params) => <TextField {...params} />} 
+                    />
                 </Grid>
                 <Grid item xs={12} display="flex" justifyContent="center" alignItems="center" marginY= {6}>
                     <Button variant="contained"
                             size="large"
-                            onClick={ buttonSubmit }
-                    >
+                            onClick={ buttonSubmit } >
                         Create Travel
                     </Button>
                 </Grid>

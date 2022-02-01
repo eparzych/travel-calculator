@@ -5,6 +5,9 @@ import { Container, Paper } from '@mui/material';
 import Routing from './Routing';
 
 const useStyles = makeStyles(theme => ({
+    status: {
+        danger: '#FF72B1',
+      },
 
     appMain: {
         paddingTop: '5vh',
@@ -15,24 +18,43 @@ const useStyles = makeStyles(theme => ({
             width: '100%',
             margin: theme.spacing(1, 0, 1, 0),
         },
+        '& .MuiOutlinedInput-root.MuiInputBase-root.MuiInputBase-colorPrimary.Mui-error': {
+            background: '#f8dddf'
+        },
+        '& .MuiFormHelperText-root.Mui-error' :{
+            // background: '#e26971',
+            fontSize: "16px",
+            fontWeight: "500",
+            color: "#e26971",
+        },
+
         '& h1': {
             textTransform: 'upperCase',
             margin: theme.spacing(2, 0, 5),
-            fontSize: '45px',
+            fontSize: '50px',
             fontWeight: "600",
+            textOverflow: "ellipsis",
+            overflow: "hidden"
         },
         '& h2': {
             textTransform: 'upperCase',
-            fontSize: "20px"
+            fontSize: "20px",
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+            whiteSpace: "nowrap"
         },
         '& p': {
             marginLeft: theme.spacing(5),
-            fontSize: '20px'
+            fontSize: '20px',
+            textOverflow: "ellipsis",
+            overflow: "hidden"
         },
         '& p span': {
             textTransform: 'upperCase',
             fontSize: '22px',
             fontWeight: "600",
+            textOverflow: "ellipsis",
+            overflow: "hidden"
         },
         '& .imgCard': {
             width: '100%',
