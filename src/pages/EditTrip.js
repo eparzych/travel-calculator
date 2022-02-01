@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Grid, Box, Button } from '@mui/material';
-import { useForm, Form } from '../components/useForm';
 import Expences from "../components/EditTrip/Expences";
 import Chart from "../components/Chart";
 import { API } from "../config";
@@ -95,9 +94,8 @@ export default function EditTrip(){
     };
 
     return (
-    <Form>
-        <Grid container padding={5} columnSpacing={4} >
-            <Grid item xs={6}>
+        <Grid container height={100} padding={5} columnSpacing={4} >
+            <Grid item  xs={12} sm={6}>
                 <h1>{values.tourName}</h1>
                 <p>
                     <span>City:</span> {values.city}
@@ -112,28 +110,27 @@ export default function EditTrip(){
                     <span>End date:</span> {values.endDate} 
                 </p>
             </Grid>
-            <Grid item xs={6} >
+            <Grid item xs={12} sm={6}>
                 <Chart expences = { values.expences } />
             </Grid>
-            <Grid item xs={8} display="flex" justifyContent="flex-end">
+            <Grid item xs={12} sm={8} display="flex" justifyContent="flex-end" sx={{ marginY:1.5}}>
                 <h2>Total Cost: {values.totalCost} zł</h2>
             </Grid>
-            <Grid item xs={4} display="flex" justifyContent="flex-end">
+            <Grid item xs={12} sm={4} display="flex" justifyContent="flex-end" >
                 <Button variant="contained" size="medium" onClick={addExpence}>
                     Add expence
                 </Button>
             </Grid>
-            <Grid item xs={12} marginY={4.5}>
-                <Expences expences={values.expences} setExpences={setExpences}/>
+            <Grid item xs={12} marginY={4.5}   >
+                <Expences  expences={values.expences} setExpences={setExpences} />
             </Grid> 
             <Grid item xs={12} >
-                <Box sx={{ marginY: 1 }} display="flex" justifyContent="center" alignItems="center">
+                <Box sx={{ marginY: 1.5 }} display="flex" justifyContent="center" alignItems="center">
                     <Button variant="contained" size="large" onClick={buttonSubmit}>
                         Save Travel
                     </Button>
                 </Box>
             </Grid>
         </Grid>
-    </Form>
     )
 }

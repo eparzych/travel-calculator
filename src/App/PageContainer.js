@@ -7,8 +7,9 @@ import Routing from './Routing';
 const useStyles = makeStyles(theme => ({
 
     appMain: {
-        height: '100vh',
-        padding: '5vh',
+        paddingTop: '5vh',
+        paddingBottom: '5vh',
+        height: "100%",
         backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')",
         '& .MuiFormControl-root': {
             width: '100%',
@@ -46,8 +47,8 @@ export default function PageContainer(){
 
     return(
         <div className={classes.appMain}>
-            <Container>
-                <Paper sx={{height: "90vh", background: brown[50]}} elevation={4}>
+            <Container >
+                <Paper sx={{height: "90vh", background: brown[50], overflow: "auto"}} elevation={4} >
                     <Routing/>
                 </Paper>
             </Container>

@@ -53,7 +53,7 @@ export default function AddTrip(){
                 <Grid item xs={12} >
                     <h1>New Travel</h1>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <TextField
                         label="Tour name"
                         name="tourName"
@@ -70,7 +70,7 @@ export default function AddTrip(){
                         value={values.country} 
                         onChange={handleInputChange} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
 
                         <DatePicker
                             label="Start date"

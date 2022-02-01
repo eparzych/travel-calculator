@@ -74,9 +74,8 @@ export default function Expences(props) {
     ];
     
     return (
-        <div style={{ height: '400px', width: '100%' }}>
+        <div style={{height: "350px"}}>
             <DataGrid onCellEditCommit = {handleCommit}
-                // height = {200}
                 rows={expences}
                 rowHeight= {35}
                 columns={columns}
@@ -84,5 +83,5 @@ export default function Expences(props) {
                 disableSelectionOnClick
             /> 
         </div>
-    );
+    )
 }
