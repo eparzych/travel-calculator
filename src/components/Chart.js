@@ -10,14 +10,20 @@ export default function Chart(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(expenceCategories.map(category => {
+    let newData = [];
+    expenceCategories.forEach(category => {
       let sum = expences.filter(expence => expence.categoryId == category)
         .reduce((prev, curr) => {
           return prev + curr.cost;
-        }, 0)
-        return { name: category, value: sum }
-  }))
-},[expences]);
+        }, 0);
+      
+      if (sum != 0) {
+        
+        newData.push({ name: category, value: sum });
+      }
+    })
+    setData(newData);
+  }, [expences]);
   
   return (
     <div style={{ width: "100%", height: "250px", margin: "15px 0"}}>
