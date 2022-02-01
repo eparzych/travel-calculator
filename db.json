@@ -21,6 +21,62 @@
           "categoryId": "accomodation",
           "name": "hotel",
           "cost": 120
+        },
+        {
+          "id": 2,
+          "date": "2022-02-01T15:35:48.139Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 3,
+          "date": "2022-02-01T15:35:48.649Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 4,
+          "date": "2022-02-01T15:35:49.026Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 5,
+          "date": "2022-02-01T15:35:49.384Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 6,
+          "date": "2022-02-01T15:35:49.610Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 7,
+          "date": "2022-02-01T15:35:50.069Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 8,
+          "date": "2022-02-01T15:35:50.631Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
+        },
+        {
+          "id": 9,
+          "date": "2022-02-01T15:35:51.223Z",
+          "categoryId": "",
+          "name": "",
+          "cost": 0
         }
       ],
       "totalCost": 140
@@ -104,6 +160,77 @@
         }
       ],
       "totalCost": 6
+    },
+    {
+      "id": 7,
+      "tourName": "Tatry",
+      "city": "Gdańsk",
+      "country": "Polska",
+      "startDate": "2022-01-31T22:00:45.751Z",
+      "endDate": "2022-02-27T22:00:45.000Z",
+      "expences": []
+    },
+    {
+      "id": 8,
+      "tourName": "Tatry",
+      "city": "",
+      "country": "",
+      "startDate": "2022-02-01T16:03:17.946Z",
+      "endDate": "2022-02-01T16:03:17.946Z",
+      "expences": []
+    },
+    {
+      "id": 9,
+      "tourName": "Wczasy pod gruszą",
+      "city": "Zakopane",
+      "country": "Polska",
+      "startDate": "2022-02-01T21:09:21.132Z",
+      "endDate": "2022-02-01T21:09:21.132Z",
+      "expences": [
+        {
+          "id": 0,
+          "date": "2022-02-01T21:15:19.275Z",
+          "categoryId": "transport",
+          "name": "",
+          "cost": 100
+        },
+        {
+          "id": 1,
+          "date": "2022-02-01T21:15:24.225Z",
+          "categoryId": "accomodation",
+          "name": "",
+          "cost": 100
+        }
+      ],
+      "totalCost": 200
+    },
+    {
+      "id": 10,
+      "tourName": "WCZAAAAAAAAASSSSSSSSSYYYYYYYY POOOOOODDDDDD GRRRUUUUUSZZZAĄĄĄĄĄ",
+      "city": "",
+      "country": "",
+      "startDate": "2022-02-01T21:30:01.587Z",
+      "endDate": "2022-02-01T21:30:01.587Z",
+      "expences": [],
+      "totalCost": 0
+    },
+    {
+      "id": 11,
+      "tourName": "Tatry",
+      "city": "",
+      "country": "",
+      "startDate": "2022-02-01T21:41:22.853Z",
+      "endDate": "2022-02-01T21:41:22.853Z",
+      "expences": [
+        {
+          "id": 0,
+          "date": "2022-02-01T21:43:34.756Z",
+          "categoryId": "transport",
+          "name": "",
+          "cost": 50
+        }
+      ],
+      "totalCost": 50
     }
   ]
 }
