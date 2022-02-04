@@ -4,13 +4,19 @@ import { Grid, Box, Button } from '@mui/material';
 import Expences from "../components/EditTrip/Expences";
 import Chart from "../components/Chart";
 import { API } from "../config";
-import { AddRoadTwoTone } from '@mui/icons-material';
 
 function sumExpences (expences){
     let sum = expences.reduce((prev, curr) => {
         return prev + curr.cost;
     }, 0)
     return sum;
+}
+
+const localDate = (date) => {
+    if (date != "") {
+        date = new Date(date).toLocaleDateString()
+    }
+    return date;
 }
 
 export default function EditTrip(){
@@ -39,6 +45,7 @@ export default function EditTrip(){
                 throw new Error('Błąd sieci!');
         }).then(data => {
             console.log(data);
+            data.expences.forEach(expence => expence.date = new Date(expence.date));
             if(data) {
                 setValues(data);
             }
@@ -121,10 +128,10 @@ export default function EditTrip(){
                     <span>Country:</span> {values.country}
                 </p>
                 <p>
-                    <span>Start date:</span> {values.startDate}
+                    <span>Start date:</span> { localDate(values.startDate) }
                 </p>
                 <p>
-                    <span>End date:</span> {values.endDate} 
+                    <span>End date:</span> { localDate(values.endDate) } 
                 </p>
             </Grid>
             <Grid item xs={12} sm={5}>
