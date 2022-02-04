@@ -4,6 +4,7 @@ import { Grid, Box, Button } from '@mui/material';
 import Expences from "../components/EditTrip/Expences";
 import Chart from "../components/Chart";
 import { API } from "../config";
+import { AddRoadTwoTone } from '@mui/icons-material';
 
 function sumExpences (expences){
     let sum = expences.reduce((prev, curr) => {
@@ -61,10 +62,26 @@ export default function EditTrip(){
         })
     }
 
+    const getNewExpenceId = () => {
+        let newId = 0;
+        
+        if(values.expences.length != 0){
+            let max = values.expences[0].id;
+            
+            for (let i = 1; i < values.expences.length; i++) {
+                if(values.expences[i].id > max){
+                    max = values.expences[i].id;
+                }
+            }
+            newId = max +1;
+        }
+        return newId;
+    }
+
     const addExpence = () => {
         setExpences([...values.expences,  
             {
-                id: values.expences.length,
+                id: getNewExpenceId(),
                 date: new Date(),
                 categoryId: '',
                 name: '',
@@ -122,7 +139,7 @@ export default function EditTrip(){
                 </Button>
             </Grid>
             <Grid item xs={12} marginY={4.5}   >
-                <Expences  expences={values.expences} setExpences={setExpences} />
+                <Expences expences={values.expences} setExpences={setExpences} />
             </Grid> 
             <Grid item xs={12} >
                 <Box sx={{ marginY: 1.5 }} display="flex" justifyContent="center" alignItems="center">
