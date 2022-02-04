@@ -3,6 +3,7 @@ import { makeStyles} from '@mui/styles';
 import { brown } from '@mui/material/colors';
 import { Container, Paper } from '@mui/material';
 import Routing from './Routing';
+import background from '../assets/tlo.jpg';
 
 const useStyles = makeStyles(theme => ({
     status: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
         paddingTop: '5vh',
         paddingBottom: '5vh',
         height: "100%",
-        backgroundImage: "url('https://cdn.pixabay.com/photo/2019/01/09/14/13/leaves-3923413_960_720.jpg')",
+        background: `url(${background})`,
         '& .MuiFormControl-root': {
             width: '100%',
             margin: theme.spacing(1, 0, 1, 0),
