@@ -1,5 +1,5 @@
-# TravelCalculator
-The aplication is used to save the cost of trips.
+# TravelCostPlanner
+The aplication is used to save the expenses of trips, allowing them to be presented graphically.
 
 ## Technologies Used
 - React
@@ -12,6 +12,9 @@ The aplication is used to save the cost of trips.
 - JSON Server
 
 ## Screenshots
+![Screenshot 1](public/img/screenshot1.png)
+![Screenshot 1](public/img/screenshot2.png)
+![Screenshot 1](public/img/screenshot3.png)
 
 ## Setup
 - npm install --dev

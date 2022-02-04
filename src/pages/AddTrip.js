@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Button } from '@mui/material';
 import { useForm, Form } from '../components/useForm';
@@ -31,7 +31,6 @@ export default function AddTrip(){
         setErrors,
         handleInputChange,
         handleDateChange,
-        resetForm,
     } = useForm(initialFValues);
 
     const navigate = useNavigate();
@@ -50,7 +49,6 @@ export default function AddTrip(){
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 navigate("/edit/" + data.id);
             })
             .catch(error => {

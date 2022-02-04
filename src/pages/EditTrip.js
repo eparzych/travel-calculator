@@ -44,7 +44,6 @@ export default function EditTrip(){
             else
                 throw new Error('Błąd sieci!');
         }).then(data => {
-            console.log(data);
             data.expences.forEach(expence => expence.date = new Date(expence.date));
             if(data) {
                 setValues(data);
@@ -109,7 +108,6 @@ export default function EditTrip(){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             navigate("/") ;
         })
         .catch(error => {

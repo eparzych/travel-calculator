@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Grid, Box, Button } from '@mui/material';
-import { spacing } from '@mui/system';
+import { Grid, Button } from '@mui/material';
 import { API } from "../config";
 import TourCard from "../components/TourCard";
 
@@ -17,7 +16,6 @@ export default function Home(){
             else
                 throw new Error('Błąd sieci!');
         }).then(data => {
-            console.log(data);
             if(data) {
                 setTrips(data);
             }
@@ -40,9 +38,8 @@ export default function Home(){
         <Grid item xs={12} display="flex" alignItems="flex-start" flexWrap="wrap" >
 
                 {trips.map(trip =>
-                    <Grid item xs={12} sm={3} paddingX={1} >
-                        <TourCard 
-                            key={trip.id} 
+                    <Grid item key={trip.id} xs={12} sm={3} paddingX={1} >
+                        <TourCard
                             trip={trip} />
                     </Grid>
                 )}

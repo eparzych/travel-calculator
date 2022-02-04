@@ -20,10 +20,6 @@ export function useForm(initialFValues){
         })
     }
 
-    const resetForm = () => {
-        setValues(initialFValues);
-    }
-
     return {
         values,
         setValues,
@@ -31,7 +27,6 @@ export function useForm(initialFValues){
         setErrors,
         handleInputChange,
         handleDateChange,
-        resetForm,
     }
 }
 
