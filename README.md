@@ -1,5 +1,5 @@
 # TravelCostPlanner
-The aplication is used to save the expenses of trips, allowing them to be presented graphically.
+The aplication is used to save the expenses of trips, allowing them to be presented graphically. Live demo [_here_](https://travel-cost-planner.herokuapp.com)
 
 ## Technologies Used
 - React
