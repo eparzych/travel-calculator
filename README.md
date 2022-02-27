@@ -18,8 +18,8 @@ The aplication is used to save the expenses of trips, allowing them to be presen
 
 ## Setup
 - npm install --dev
-- json-server --watch db.json --port 3001
-- npm start
+- npm run build
+- node server.js
 
 ## Contact
 emilia.parzych92@gmail.com
