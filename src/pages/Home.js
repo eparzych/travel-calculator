@@ -28,7 +28,7 @@ export default function Home(){
  return (
     <Grid container columnSpacing={2} padding={5}>
         <Grid item xs={12} display="flex" justifyContent="center" >
-            <h1>Welcome to Travel Calculator!</h1>
+            <h1>Welcome to Travel Calculator</h1>
         </Grid>
         <Grid item xs={12} display="flex" justifyContent="center" marginBottom={5}>
             <Button xs={{pb: 1}} component={Link} to="/add" variant="contained" color="primary" size="large">

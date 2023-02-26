@@ -13,8 +13,8 @@ The aplication is used to save the expenses of trips, allowing them to be presen
 
 ## Screenshots
 ![Screenshot 1](public/img/screenshot1.png)
-![Screenshot 1](public/img/screenshot2.png)
-![Screenshot 1](public/img/screenshot3.png)
+![Screenshot 2](public/img/screenshot2.png)
+![Screenshot 3](public/img/screenshot3.png)
 
 ## Setup
 - npm install --dev
